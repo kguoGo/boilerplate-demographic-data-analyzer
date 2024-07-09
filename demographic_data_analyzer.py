@@ -18,10 +18,10 @@ def calculate_demographic_data(print_data=True):
     # What is the percentage of people who have a Bachelor's degree?
     
     education_c = df.loc[:, ['education']] # Get only education column
-    bachelors = education_c[education_c['education']== 'Bachelors'] # Only get bachelors degree & count
+    bachelors = education_c[education_c['education']== 'Bachelors']['education'] # Only get bachelors degree & count
     num_bachelors = bachelors.count()
     total_ppl = df['education'].count()
-    percentage_bachelors = ((num_bachelors[0]/total_ppl)*100).round(1)
+    percentage_bachelors = ((num_bachelors/total_ppl)*100).round(1)
     
 
     # What percentage of people with advanced education (`Bachelors`, `Masters`, or `Doctorate`) make more than 50K?
